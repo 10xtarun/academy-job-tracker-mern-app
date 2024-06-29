@@ -1,0 +1,27 @@
+{
+  "name": "job-tracker-api",
+  "version": "1.0.0",
+  "description": "this api helps in tracking various job applications",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start:dev": "nodemon app.js",
+    "start:prod": "node app.js"
+  },
+  "keywords": [
+    "node",
+    "js",
+    "express",
+    "mongo",
+    "mongoose"
+  ],
+  "author": "Tarun Singh",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.4"
+  }
+}
