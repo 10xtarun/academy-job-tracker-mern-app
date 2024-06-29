@@ -1,6 +1,7 @@
 const express = require("express")
 const dotenv = require("dotenv")
 const mongoose = require("mongoose")
+const authRouter = require("./controller/auth")
 
 dotenv.config()
 const app = express()
@@ -30,8 +31,20 @@ return Promise.resolve()
             return res.send("Greetings! Welcome to Job Tracker API.")
         })
 
-        app.post("/auth/register", (req, res) => {
-            return res.send("Registered successfully.")
+        app.use("/auth", authRouter)
+    })
+    .then(() => {
+        // error handler middleware
+        app.use((err, req, res, next) => {
+            // console.error(err)
+            res.status(400).json(
+                {
+                    message: "Request failed.",
+                    data: {},
+                    error: err.message ? err.message : err.toString()
+                }
+            )
+            next()
         })
     })
     .then(() => {
